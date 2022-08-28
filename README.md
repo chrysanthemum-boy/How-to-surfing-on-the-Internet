@@ -43,7 +43,7 @@
     ```
     mkdr trojan
     ```
-    * 下载trojan-go[trojan-go](https://github.com/p4gefau1t/trojan-go)
+    * 下载[trojan-go](https://github.com/p4gefau1t/trojan-go)
     * 解压trojan-go
   + 申请证书：
     * 安装acme：
