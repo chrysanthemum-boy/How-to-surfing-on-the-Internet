@@ -8,14 +8,14 @@
 ## 基础版
 
 - 安装x-ui面板
-  + [x-ui github地址](https://github.com/vaxilu/x-ui)
+  + [x-ui](https://github.com/vaxilu/x-ui)
   ```
   bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
   ```  
 - 在x-ui面板中选择不同协议的节点并开放端口  
 - 复制节点信息至V2ray/Clash等客户端软件
-  + [v2ray github地址](https://github.com/2dust/v2rayN)
-  + [clash_for_windows_pkg github地址](https://github.com/Fndroid/clash_for_windows_pkg)
+  + [v2ray](https://github.com/2dust/v2rayN)
+  + [clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg)
 
 - 打开自动配置系统代理开始科学上网（或者获取SwitchyOmega和Proxifier对浏览器和本机程序做更为细致的代理)  
   + [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=zh-CN)  
@@ -25,19 +25,17 @@
 
 ## 进阶版
 
-- 获取免费域名  
-  [freenom](https://my.freenom.com/)  
+- 登录[Freenom](https://my.freenom.com/) 获取免费域名  
 
-- DNS解析域名  
-  [Cloudflare](https://dash.cloudflare.com/)
+- 使用[Cloudflare](https://dash.cloudflare.com/)DNS解析域名  
   
-- 使用Cloudflare对域名进行CDN代理（做流量的转发）  
-  [Cloudflare](https://dash.cloudflare.com/)
+- 使用[Cloudflare](https://dash.cloudflare.com/)对域名进行CDN代理（做流量的转发，可能会导致减速）  
   
-- 使用CloudFront对域名进行CDN代理（做流量的转发）（可使节点的速度更快）  
-  [CloudFront](https://us-east-1.console.aws.amazon.com/)
+- 使用[CloudFront](https://us-east-1.console.aws.amazon.com/)对域名进行CDN代理（做流量的转发）  
+  + 在新增节点的时候选择websocket（ws）算法  
+  + 每月限1T的流量、1000万次http请求
   
-- 获取域名的证书，可以将节点所用的算法改为trojan或者其他算法加上TLS的操作 
+- 获取域名的证书（作用：可搭建trojan算法的节点或者使用其他算法+TLS的配套组合） 
   + trojan安装（也可以直接用x-ui）
     * 新建目录
     ```
