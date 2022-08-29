@@ -33,16 +33,65 @@
   
 - 使用[CloudFront](https://us-east-1.console.aws.amazon.com/)对域名进行CDN代理（做流量的转发）  
   + 在新增节点的时候选择websocket（ws）算法  
-  + 每月限1T的流量、1000万次http请求
-  
-- 获取域名的证书（作用：可搭建trojan算法的节点或者使用其他算法+TLS的配套组合） 
-  + trojan安装（也可以直接用x-ui）
+  + 每月限1T的流量、100万次request请求
+
+- 使用trojan，安装[trojan-go](https://github.com/p4gefau1t/trojan-go)程序
+  + 服务端trojan安装（也可以直接用x-ui）
     * 新建目录
     ```
-    mkdr trojan
+    mkdir trojan
     ```
     * 下载[trojan-go](https://github.com/p4gefau1t/trojan-go)
     * 解压trojan-go
+  + 客户端v2rayN配置trojan节点
+    
+- 使用歇斯底里[hysteria](https://github.com/HyNetwork/hysteria)程序
+  + 服务端
+    * 下载：
+    ```
+    wegt https://github.com/HyNetwork/hysteria/releases/download/v1.2.0/hysteria-linux-amd64
+    ```
+    * 配置config.json：
+    ```
+    {
+      "listen": "port",
+      "cert": "/root/hy/ca.crt",
+      "key": "/root/hy/ca.key",
+      "obfs": "password"
+    }
+    ```
+    * 启动：
+    ```
+    ufw disable
+    chmod 755 hysteria-linux-amd64
+    ./hysteria-linux-amd64 server
+    ```
+  + 客户端
+    * 下载
+    * 配置config.json：
+    ```
+    {
+      "server": "ip:port",
+      "obfs": "password",
+      "up_mbps": 20,
+      "down_mbps": 100,
+      "insecure": true,
+      "socks5": {
+        "listen": "127.0.0.1:1080"
+      },
+      "http": {
+        "listen": "127.0.0.1:1081"
+      }
+    }
+    ```
+    * 启动：
+    ```
+    hysteria-windows-amd64.exe client
+    ```
+    * 配置v2rayN并测试
+  
+- 获取域名的证书（作用：可搭建trojan节点、hysteria节点或者使用其他算法+TLS的配套组合） 
+  
   + 申请证书：
     * 安装acme：
     ```
